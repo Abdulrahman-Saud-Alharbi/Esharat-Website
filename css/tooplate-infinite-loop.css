@@ -16,6 +16,9 @@ https://www.tooplate.com/view/2117-infinite-loop
     font-weight: normal;
     font-style: normal;
 }
+body {
+  text-align: right;
+}
 
 
 
@@ -192,10 +195,19 @@ blockquote {
 }
 
 .tm-hero-title {
-  font-size: 5rem; /* Adjust this value as needed (original was ~2.5rem) */
+  font-size: clamp(2rem, 5vw, 5rem); /* Responsive font */
   font-family: 'Ya-ModernPro-Bold', sans-serif;
   margin-bottom: 20px;
   line-height: 1.1; 
+}
+
+
+@media (max-width: 767px) {
+  .tm-hero-text-container {
+    font-size: 1.5rem; /* Reduce size on small screens */
+    text-align: center;
+    padding: 0 10px;
+  }
 }
 
 .tm-hero-text-container {
@@ -258,13 +270,15 @@ blockquote {
 }
 
 .styled-image {
-  width: 500px; /* Adjust size as needed */
-  height: auto;
+  width: 100%;       /* Make it responsive */
+  height: auto;      /* Keep aspect ratio */
+  max-width: 500px;  /* Optionally set max size */
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   object-fit: contain;
   transition: transform 0.3s ease; /* adds hover effect */
 }
+
 
 .styled-image:hover {
   transform: scale(1.03); /* Optional: slight zoom on hover */
